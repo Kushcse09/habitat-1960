@@ -1,10 +1,11 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Inter, JetBrains_Mono, Newsreader } from 'next/font/google'
 import './globals.css'
 
-const geist = Geist({ subsets: ['latin'], variable: '--font-geist' })
-const mono = Geist_Mono({ subsets: ['latin'], variable: '--font-mono' })
-export const metadata: Metadata = { title: 'GeoEcoz — Habitat intelligence', description: 'AI-powered environmental habitat risk monitoring.', generator: 'v0.app' }
-export const viewport: Viewport = { colorScheme: 'dark', themeColor: '#0b1714' }
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) { return <html lang="en" className="bg-background"><body className={`${geist.variable} ${mono.variable} antialiased`}>{children}{process.env.NODE_ENV === 'production' && <Analytics />}</body></html> }
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const mono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-jetbrains' })
+const newsreader = Newsreader({ subsets: ['latin'], variable: '--font-newsreader' })
+export const metadata: Metadata = { title: 'GeoEcoz — Earth observation control panel', description: 'A field monitoring register for habitat risk and conservation response.' }
+export const viewport: Viewport = { colorScheme: 'dark', themeColor: '#14181A' }
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) { return <html lang="en" className="bg-background"><body className={`${inter.variable} ${mono.variable} ${newsreader.variable}`}>{children}{process.env.NODE_ENV === 'production' && <Analytics />}</body></html> }
